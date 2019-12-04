@@ -90,12 +90,18 @@ def big_shoe_rebounds
   player_res = game_data[:home][:players].reduce {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
   player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
  
-  
   player_res[:rebounds]
 
 end
 
-
+def most_points_scored 
+  game_data = game_hash
+  
+  player_res = game_data[:home][:players].reduce {|memo, player| memo[:points] > player[:points] ? memo : player}
+  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] > player[:points] ? memo : player}
+ 
+  player_res[:name]
+end
 
 
 
