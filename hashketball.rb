@@ -101,7 +101,7 @@ def most_points_scored
   puts player_res
   player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] > player[:points] ? memo : player}
  
-  player_res[:name]
+  player_res[:player_name]
 end
 
 
