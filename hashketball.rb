@@ -122,7 +122,7 @@ def long_name_steals_a_ton?
   steal_player = find_player_with_highest_number(:steals)
   long_name_player = player_with_longest_name
   
-  return steal_player == long_name_player
+  return steal_player[:player_name] == long_name_player[:player_name]
 end
 
 def find_player_with_highest_number(player_hash_key)
