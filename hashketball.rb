@@ -122,6 +122,23 @@ def player_with_longest_name
   player_res[:player_name]
 end
 
+def player_with_most_steals(field)
+  game_data = game_hash
+  
+  return game_data[field]
+  
+  # player_res = game_data[:home][:players].reduce {|memo, player| memo[:steals] > player[:steals] ? memo : player}
+  # player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
+ 
+  # player_res[:rebounds]
+end
+
+def long_name_steals_a_ton? (field)
+  game_data = game_hash
+  
+  player_with_most_steals(:home)
+end
+
 
 
 
