@@ -116,10 +116,10 @@ end
 def player_with_longest_name
   game_data = game_hash
   
-  player_res = game_data[:home][:players].reduce {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
-  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
+  player_res = game_data[:home][:players].reduce {|memo, player| memo[:player_name].length > player[:player_name].length ? memo : player}
+  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:player_name].length > player[:player_name].length ? memo : player}
  
-  player_res[:rebounds]
+  player_res[:player_name]
 end
 
 
