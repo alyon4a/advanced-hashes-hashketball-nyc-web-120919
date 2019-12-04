@@ -85,21 +85,13 @@ end
 
 def big_shoe_rebounds
   
-  game_data = game_hash
-  
-  player_res = game_data[:home][:players].reduce {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
-  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
+  player_res = find_player_with_highest_number(:shoe)
  
   player_res[:rebounds]
 
 end
 
 def most_points_scored 
-  # game_data = game_hash
-  
-  # player_res = game_data[:home][:players].reduce {|memo, player| memo[:points] > player[:points] ? memo : player}
-  # player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] > player[:points] ? memo : player}
-  
   player_res = find_player_with_highest_number(:points)
  
   player_res[:player_name]
@@ -124,21 +116,13 @@ def player_with_longest_name
   player_res[:player_name]
 end
 
-def player_with_most_steals(field)
-  game_data = game_hash
-  
-  return game_data[field]
-  
-  # player_res = game_data[:home][:players].reduce {|memo, player| memo[:steals] > player[:steals] ? memo : player}
-  # player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}
- 
-  # player_res[:rebounds]
-end
 
-def long_name_steals_a_ton? ()
-  game_data = game_hash
+
+def long_name_steals_a_ton? 
+  steal_player = find_player_with_highest_number(:steals)
+  long_name_player = player_with_longest_name
   
-  player_with_most_steals(:home)
+  return steal_player == long_name_player
 end
 
 def find_player_with_highest_number(player_hash_key)
