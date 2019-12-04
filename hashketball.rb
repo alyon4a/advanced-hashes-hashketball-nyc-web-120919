@@ -87,10 +87,11 @@ def big_shoe_rebounds
   
   game_data = game_hash
   
-  team_res = game_data.detect {|key, value| value[:players].reduce {|memo, player| player[:] == name}}
-  player_res = team_res[1][:players].detect {|player| player[:player_name] == name}
+  player_res = game_data[:home].reduce {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}}
+  player_res = game_data[:away].reduce (player_res) {|memo, player| memo[:shoe] > player[:shoe] ? memo : player}}
+ 
   
-  player_res
+  player_res[:rebounds]
 
 end
 
