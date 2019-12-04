@@ -133,7 +133,7 @@ def player_with_most_steals(field)
   # player_res[:rebounds]
 end
 
-def long_name_steals_a_ton? (field)
+def long_name_steals_a_ton? ()
   game_data = game_hash
   
   player_with_most_steals(:home)
