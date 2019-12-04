@@ -104,13 +104,12 @@ def most_points_scored
 end
 
 def winning_team
+  game_data = game_hash
   
-  total_points_home = game_data = game_hash
-  
-  player_res = game_data[:home][:players].reduce {|memo, player| memo[:points] > player[:points] ? memo : player}
-  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] > player[:points] ? memo : player}
+  total_points_home = game_data[:home][:players].reduce {|memo, player| memo[:points] + player[:points]}
+  total_points_away = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] + player[:points]}
  
-  player_res[:player_name]
+  total_points_away > total_points_home ? game_data[:away][:team_name] : game_data[:home][:team_name]
   
 end
   
