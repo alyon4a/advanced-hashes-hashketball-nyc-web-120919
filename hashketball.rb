@@ -105,6 +105,15 @@ end
 
 def winning_team
   
+  total_points_home = game_data = game_hash
+  
+  player_res = game_data[:home][:players].reduce {|memo, player| memo[:points] > player[:points] ? memo : player}
+  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[:points] > player[:points] ? memo : player}
+ 
+  player_res[:player_name]
+  
+end
+  
 
 
 
