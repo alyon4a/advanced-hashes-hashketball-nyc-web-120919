@@ -139,6 +139,14 @@ def long_name_steals_a_ton? ()
   player_with_most_steals(:home)
 end
 
+def find_player_with_highest_number(player_hash_key)
+  game_data = game_hash
+  
+  player_res = game_data[:home][:players].reduce {|memo, player| memo[player_hash_key] > player[player_hash_key] ? memo : player}
+  player_res = game_data[:away][:players].reduce (player_res) {|memo, player| memo[player_hash_key] > player[player_hash_key] ? memo : player}
+  
+  player_res
+end
 
 
 
